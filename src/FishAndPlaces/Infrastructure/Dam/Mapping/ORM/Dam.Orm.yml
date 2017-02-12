@@ -1,0 +1,35 @@
+FishAndPlamces\Domain\Model\Dam:
+    repositoryClass: FishAndPlaces\Infrastructure\Dam\Repository\Doctrine\ORM\DoctrineDamRepository
+    type: entity
+    table: dam
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        createdAt:
+            type: datetime
+        updateAt:
+            type: datetime
+            nullable: true
+        name:
+            type: string
+            length: 255
+        location:
+            type: string
+            length: 255
+        rating:
+            type: float
+        is_active:
+            type: smallint
+        price_pro_person:
+            type: float
+
+    OneToMany:
+        fishCollection:
+            targetEntity: Fish
+            mappedBy: dam
+        damImages:
+            targetEntity: DamImage
+            mappedBy: image
