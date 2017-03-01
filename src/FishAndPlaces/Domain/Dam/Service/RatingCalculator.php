@@ -13,4 +13,8 @@ namespace FishingAndPlaces\Dam\Domain\Service;
 class RatingCalculator implements RatingCalculatorInterface
 {
 
+    public function calculate()
+    {
+        // TODO: Implement calculate() method.
+    }
 }

@@ -26,11 +26,6 @@ class Fish
     private $location;
 
     /**
-     * @var Dam
-     */
-    private $dam;
-
-    /**
      * @var \DateTime
      */
     private $createdAt;

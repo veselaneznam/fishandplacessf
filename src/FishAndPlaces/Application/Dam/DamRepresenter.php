@@ -1,26 +1,14 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Vesela Ferdinandova
- * Email: vesela.ferdinandova@gmail.com
- * Date: 11/20/16
- * Time: 1:00 PM
- */
-
-namespace FishingAndPlaces\Domain\Dam\Model;
+namespace FishingAndPlaces\Dam\Applicaiton\Dam;
 
 use FishingAndPlaces\Dam\Domain\Model\Value\Location;
 use FishingAndPlaces\Dam\Domain\Model\Value\Rating;
+use FishingAndPlaces\Domain\Dam\Model\Dam;
 use FishingAndPlaces\Domain\Fish\Model\Fish;
 
-class Dam
+class DamRepresenter
 {
-    /**
-     * @var int
-     */
-    private $id;
-
     /**
      * @var string
      */
@@ -30,6 +18,11 @@ class Dam
      * @var Location
      */
     private $location;
+
+    /**
+     * @var bool
+     */
+    private $isActive;
 
     /**
      * @var float
@@ -57,30 +50,24 @@ class Dam
     private $updatedAt;
 
     /**
-     * @var bool
+     * @var int
      */
-    private $isActive;
+    private $id;
 
     /**
-     * Dam constructor.
-     *
-     * @param string   $name
-     * @param Location $location
-     * @param float    $price
-     * @param Fish[]   $fishCollection
-     * @param Rating   $rating
-     * @param          $isActive
+     * @param Dam $dam
      */
-    public function __construct($name, Location $location, $price, array $fishCollection, $rating, $isActive)
+    public function __construct(Dam $dam)
     {
-        $this->name = $name;
-        $this->location = $location;
-        $this->priceProPerson = $price;
-        $this->fishCollection = $fishCollection;
-        $this->rating = $rating;
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime();
-        $this->isActive = $isActive;
+        $this->id = $dam->getId();
+        $this->name = $dam->getName();
+        $this->location = $dam->getLocation();
+        $this->isActive = $dam->isIsActive();
+        $this->priceProPerson = $dam->getPriceProPerson();
+        $this->fishCollection = $dam->getFishCollection();
+        $this->rating = $dam->getRating();
+        $this->createdAt = $dam->getCreatedAt();
+        $this->updatedAt = $dam->getUpdatedAt();
     }
 
     /**
@@ -97,6 +84,14 @@ class Dam
     public function getLocation()
     {
         return $this->location;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isIsActive()
+    {
+        return $this->isActive;
     }
 
     /**
@@ -124,22 +119,6 @@ class Dam
     }
 
     /**
-     * @param Rating $rating
-     */
-    public function setRating(Rating $rating)
-    {
-        $this->rating = $rating;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
      * @return \DateTime
      */
     public function getCreatedAt()
@@ -156,10 +135,10 @@ class Dam
     }
 
     /**
-     * @return bool
+     * @return int
      */
-    public function isIsActive()
+    public function getId()
     {
-        return $this->isActive;
+        return $this->id;
     }
 }

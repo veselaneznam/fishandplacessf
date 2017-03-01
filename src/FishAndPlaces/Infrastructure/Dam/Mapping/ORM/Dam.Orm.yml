@@ -27,9 +27,18 @@ FishAndPlamces\Domain\Model\Dam:
             type: float
 
     OneToMany:
-        fishCollection:
-            targetEntity: Fish
-            mappedBy: dam
         damImages:
             targetEntity: DamImage
             mappedBy: image
+
+    manyToMany:
+        fishCollection:
+            targetEntity: FishingAndPlaces\Domain\Fish\Model\Fish
+            joinTable:
+                name: dam_fish
+                joinColumns:
+                    dam_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    fish_id:
+                        referencedColumnName: id

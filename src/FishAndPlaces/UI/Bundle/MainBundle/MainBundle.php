@@ -1,6 +1,6 @@
 <?php
 
-namespace UI\MainBundle;
+namespace FishAndPlaces\UI\Bundle\MainBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
