@@ -1,9 +1,14 @@
 <?php
 
-namespace FishingAndPlaces\Domain\Dam\Model;
+namespace FishAndPlaces\Domain\Dam\Model;
 
 class DamImage
 {
+    /**
+     * @var int
+     */
+    private $id;
+
     /**
      * @var Dam
      */
@@ -53,5 +58,29 @@ class DamImage
     public function getImageSrc()
     {
         return $this->imageSrc;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

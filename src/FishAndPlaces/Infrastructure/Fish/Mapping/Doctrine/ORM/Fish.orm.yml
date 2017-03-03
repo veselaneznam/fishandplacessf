@@ -1,4 +1,4 @@
-FishAndPlamces\Domain\Model\Dam:
+FishAndPlaces\Domain\Fish\Model\Fish:
     repositoryClass: FishAndPlaces\Infrastructure\Fish\Repository\Doctrine\ORM\DoctrineFishRepository
     type: entity
     table: fish
@@ -10,15 +10,15 @@ FishAndPlamces\Domain\Model\Dam:
     fields:
         createdAt:
             type: datetime
-        updateAt:
+        updatedAt:
             type: datetime
             nullable: true
         name:
             type: string
-            length: 255
+            length: '255'
         location:
             type: string
-            length: 255
+            length: '255'
 
     OneToMany:
         fishImages:

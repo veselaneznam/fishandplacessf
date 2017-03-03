@@ -1,4 +1,4 @@
-FishAndPlamces\Domain\Model\Dam:
+FishAndPlaces\Domain\Dam\Model\Dam:
     repositoryClass: FishAndPlaces\Infrastructure\Dam\Repository\Doctrine\ORM\DoctrineDamRepository
     type: entity
     table: dam
@@ -10,20 +10,20 @@ FishAndPlamces\Domain\Model\Dam:
     fields:
         createdAt:
             type: datetime
-        updateAt:
+        updatedAt:
             type: datetime
             nullable: true
         name:
             type: string
-            length: 255
+            length: '255'
         location:
             type: string
-            length: 255
+            length: '255'
         rating:
             type: float
-        is_active:
+        isActive:
             type: smallint
-        price_pro_person:
+        priceProPerson:
             type: float
 
     OneToMany:
@@ -33,7 +33,7 @@ FishAndPlamces\Domain\Model\Dam:
 
     manyToMany:
         fishCollection:
-            targetEntity: FishingAndPlaces\Domain\Fish\Model\Fish
+            targetEntity: FishAndPlaces\Domain\Fish\Model\Fish
             joinTable:
                 name: dam_fish
                 joinColumns:

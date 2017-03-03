@@ -1,0 +1,32 @@
+services:
+    fish_and_places.dam_repository:
+        class: FishAndPlaces\Infrastructure\Dam\Repository\Doctrine\ORM\DoctrineDamRepository
+        factory: ["@doctrine", getRepository]
+        arguments: [ FishAndPlaces\Domain\Dam\Model\Dam ]
+
+    fish_and_places.dam_factory:
+        class: FishAndPlaces\Application\Factory\DamStaticFactory
+
+    fish_and_places.dam_representer:
+        class: FishAndPlaces\Application\Dam\DamRepresenter
+        factory: ["@fish_and_places.dam_factory", createNewDam]
+        arguments: [ FishAndPlaces\Domain\Dam\Model\Dam ]
+
+    fish_and_places.dam_service:
+        class: FishAndPlaces\Application\Dam\DamService
+        arguments:
+            - "@fish_and_places.dam_repository"
+
+    fish_and_places.dam_image_repository:
+        class: FishAndPlaces\Infrastructure\Dam\Repository\Doctrine\ORM\DoctrineDamImageRepository
+        factory: ["@doctrine", getRepository]
+        arguments: [ FishAndPlaces\Domain\Dam\Model\DamImage ]
+
+    fish_and_places.dam_image_representer:
+        class: FishAndPlaces\Application\Dam\DamImageRepresenter
+        factory: ["@fish_and_places.dam_factory", createEmptyDamImage]
+
+    fish_and_places.dam_image_service:
+        class: FishAndPlaces\Application\Dam\DamImageService
+        arguments:
+            - "@fish_and_places.dam_image_repository"

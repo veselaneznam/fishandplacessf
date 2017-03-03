@@ -1,8 +1,8 @@
 <?php
 
-namespace FishingAndPlaces\UI\Bundle\MainBundle\Form;
+namespace FishAndPlaces\UI\Bundle\MainBundle\Form;
 
-use FishingAndPlaces\Dam\Applicaiton\Dam\DamRepresenter;
+use FishAndPlaces\Application\Dam\DamRepresenter;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -28,6 +28,7 @@ class DamType extends AbstractType
             ->add('location', TextType::class, array('mapped' => false))
             ->add('is_active', CheckboxType::class, array('mapped' => false))
             ->add('price_pro_person', TextType::class, array('mapped' => false))
+            ->add('image', ImageType::class, array('mapped' => false))
             ->add('save', SubmitType::class)
         ;
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace FishingAndPlaces\Domain\Shop;
+namespace FishAndPlaces\Domain\Shop;
 
 class Shop
 {

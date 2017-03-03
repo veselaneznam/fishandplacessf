@@ -1,7 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: services.yml }
+    - { resource: "@MainBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -58,9 +58,36 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
+        entity_managers:
+            default:
+                naming_strategy: doctrine.orm.naming_strategy.underscore
+                connection: default
+                mappings:
+#                    user:
+#                        type:      yml
+#                        dir:       %kernel.root_dir%/../src/FishAndPlaces/Infrastructure/User/Mapping/ORM
+#                        prefix:    FishAndPlaces\Domain\User\Model
+#                        alias:     MainBundle
+#                        is_bundle: false
 
+#                    shop:
+#                        type:      yml
+#                        dir:       %kernel.root_dir%/../src/FishAndPlaces/Infrastructure/Shop/Mapping/ORM
+#                        prefix:    FishAndPlaces\Domain\Shop\Model
+#                        alias:     MainBundle
+#                        is_bundle: false
+                    dam:
+                        type:      yml
+                        dir:       %kernel.root_dir%/../src/FishAndPlaces/Infrastructure/Dam/Mapping/Doctrine/ORM
+                        prefix:    FishAndPlaces\Domain\Dam\Model
+                        alias:     MainBundle
+                        is_bundle: false
+                    fish:
+                        type:      yml
+                        dir:       %kernel.root_dir%/../src/FishAndPlaces/Infrastructure/Fish/Mapping/Doctrine/ORM
+                        prefix:    FishAndPlaces\Domain\Fish\Model
+                        alias:     MainBundle
+                        is_bundle: false
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"

@@ -1,7 +1,7 @@
-FishAndPlamces\Domain\Model\Dam:
-    repositoryClass: FishAndPlaces\Infrastructure\Dam\Repository\Doctrine\ORM\DoctrineDamImageRepository
+FishAndPlaces\Domain\Fish\Model\FishImage:
+    repositoryClass: FishAndPlaces\Infrastructure\Fish\Repository\Doctrine\ORM\DoctrineFishImageRepository
     type: entity
-    table: dam_image
+    table: fish_image
     id:
         id:
             type: integer
@@ -18,8 +18,8 @@ FishAndPlamces\Domain\Model\Dam:
 
     ManyToOne:
         image:
-            targetEntity: Dam
-            inversedBy: damImages
+            targetEntity: Fish
+            inversedBy: fishImages
             joinColumn:
-                name: dam_id
+                name: fish_id
                 referencedColumnName: id

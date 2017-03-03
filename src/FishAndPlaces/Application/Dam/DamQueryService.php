@@ -7,10 +7,10 @@
  * Time: 7:58 PM
  */
 
-namespace FishingAndPlaces\Dam\Applicaiton\Dam;
+namespace FishAndPlaces\Dam\Applicaiton\Dam;
 
-use FishingAndPlaces\Dam\Domain\Repository\DamRepository;
-use FishingAndPlaces\Domain\Dam\Model\Dam;
+use FishAndPlaces\Dam\Domain\Repository\DamRepository;
+use FishAndPlaces\Domain\Dam\Model\Dam;
 
 class DamQueryService
 {

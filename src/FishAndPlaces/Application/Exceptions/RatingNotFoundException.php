@@ -7,7 +7,7 @@
  * Time: 8:04 PM
  */
 
-namespace FishingAndPlaces\Dam\Applicaiton\Exceptions;
+namespace FishAndPlaces\Dam\Applicaiton\Exceptions;
 
 
 class RatingNotFoundException extends \Exception

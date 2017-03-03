@@ -1,0 +1,25 @@
+FishAndPlaces\Domain\Dam\Model\DamImage:
+    repositoryClass: FishAndPlaces\Infrastructure\Dam\Repository\Doctrine\ORM\DoctrineDamImageRepository
+    type: entity
+    table: dam_image
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+            nullable: true
+        imageSrc:
+            type: string
+
+    ManyToOne:
+        image:
+            targetEntity: Dam
+            inversedBy: damImages
+            joinColumn:
+                name: dam_id
+                referencedColumnName: id

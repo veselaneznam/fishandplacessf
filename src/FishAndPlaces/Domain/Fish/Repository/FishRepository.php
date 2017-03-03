@@ -1,7 +1,7 @@
 <?php
-namespace FishingAndPlaces\Domain\Fish\Repository;
+namespace FishAndPlaces\Domain\Fish\Repository;
 
-use FishingAndPlaces\Domain\Fish\Model\Fish;
+use FishAndPlaces\Domain\Fish\Model\Fish;
 
 interface FishRepository
 {

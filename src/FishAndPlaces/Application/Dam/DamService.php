@@ -7,11 +7,11 @@
  * Time: 7:58 PM
  */
 
-namespace FishingAndPlaces\Dam\Applicaiton\Dam;
+namespace FishAndPlaces\Application\Dam;
 
-use FishingAndPlaces\Dam\Application\CommonService;
-use FishingAndPlaces\Dam\Domain\Repository\DamRepository;
-use FishingAndPlaces\Domain\Dam\Model\Dam;
+use FishAndPlaces\Application\CommonCommand;
+use FishAndPlaces\Domain\Dam\Model\Dam;
+use FishAndPlaces\Domain\Dam\Repository\DamRepository;
 
 class DamService implements CommonService
 {
@@ -29,53 +29,63 @@ class DamService implements CommonService
      * DamService constructor.
      *
      * @param DamRepository $damRepository
-     * @param DamCommand    $command
      */
-    public function __construct(DamRepository $damRepository, DamCommand $command)
+    public function __construct(DamRepository $damRepository)
     {
         $this->damRepository = $damRepository;
-
-        $this->command = $command;
     }
 
     /**
+     * @param CommonCommand $command
+     *
      * @return void
      */
-    public function create()
+    public function create(CommonCommand $command)
     {
-        $dam = $this->initDam();
+        $dam = $this->initDam($command);
         $this->damRepository->add($dam);
     }
 
     /**
+     * @param CommonCommand $command
+     *
      * @return void
      */
-    public function delete()
+    public function delete(CommonCommand $command)
     {
-        $dam = $this->initDam();
+        $dam = $this->initDam($command);
         $this->damRepository->remove($dam);
     }
 
     /**
+     * @param CommonCommand $command
+     *
      * @return void
      */
-    public function update()
+    public function update(CommonCommand $command)
     {
-        $dam = $this->initDam();
+        $dam = $this->initDam($command);
         $this->damRepository->update($dam);
     }
 
     /**
+     * @param CommonCommand $command
+     *
      * @return Dam
+     * @throws \Exception
      */
-    public function initDam()
+    public function initDam(CommonCommand $command)
     {
+        if(! $command instanceof DamCommand) {
+            throw new \Exception(sprintf('Wrong command type, should be %s', DamCommand::class));
+        }
         $dam = new Dam(
             $this->command->getName(),
             $this->command->getLocation(),
-            $this->command->getPrice(),
+            $this->command->getPriceProPerson(),
             $this->command->getFishCollection(),
-            $this->command->getRating()
+            $this->command->getRating(),
+            $this->command->isActive()
         );
 
         return $dam;

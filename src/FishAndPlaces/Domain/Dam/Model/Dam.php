@@ -8,11 +8,11 @@
  * Time: 1:00 PM
  */
 
-namespace FishingAndPlaces\Domain\Dam\Model;
+namespace FishAndPlaces\Domain\Dam\Model;
 
-use FishingAndPlaces\Dam\Domain\Model\Value\Location;
-use FishingAndPlaces\Dam\Domain\Model\Value\Rating;
-use FishingAndPlaces\Domain\Fish\Model\Fish;
+use FishAndPlaces\Domain\Dam\Value\Location;
+use FishAndPlaces\Domain\Dam\Value\Rating;
+use FishAndPlaces\Domain\Fish\Model\Fish;
 
 class Dam
 {
@@ -68,10 +68,10 @@ class Dam
      * @param Location $location
      * @param float    $price
      * @param Fish[]   $fishCollection
-     * @param Rating   $rating
-     * @param          $isActive
+     * @param Rating      $rating
+     * @param bool     $isActive
      */
-    public function __construct($name, Location $location, $price, array $fishCollection, $rating, $isActive)
+    public function __construct($name, Location $location, $price, array $fishCollection, Rating $rating, $isActive)
     {
         $this->name = $name;
         $this->location = $location;
@@ -158,7 +158,7 @@ class Dam
     /**
      * @return bool
      */
-    public function isIsActive()
+    public function isActive()
     {
         return $this->isActive;
     }

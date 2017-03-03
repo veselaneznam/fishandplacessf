@@ -7,13 +7,15 @@
  * Time: 8:14 PM
  */
 
-namespace FishingAndPlaces\Dam\Application;
+namespace FishAndPlaces\Application\Dam;
+
+use FishAndPlaces\Application\CommonCommand;
 
 interface CommonService
 {
-    public function create();
+    public function create(CommonCommand $command);
 
-    public function delete();
+    public function delete(CommonCommand $command);
 
-    public function update();
+    public function update(CommonCommand $command);
 }

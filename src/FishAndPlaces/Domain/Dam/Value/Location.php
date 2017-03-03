@@ -7,8 +7,7 @@
  * Time: 1:03 PM
  */
 
-namespace FishingAndPlaces\Dam\Domain\Model\Value;
-
+namespace FishAndPlaces\Domain\Dam\Value;
 
 class Location
 {

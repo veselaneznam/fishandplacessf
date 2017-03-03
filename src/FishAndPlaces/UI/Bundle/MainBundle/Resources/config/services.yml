@@ -1,0 +1,7 @@
+imports:
+    - { resource: dam.yml }
+    - { resource: fish.yml }
+
+services:
+    fish_and_places.command:
+        class: FishAndPlaces\Application\CommonCommand

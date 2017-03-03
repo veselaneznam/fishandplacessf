@@ -2,8 +2,8 @@
 
 namespace FishAndPlaces\UI\Bundle\MainBundle\Controller;
 
-use FishingAndPlaces\Dam\Applicaiton\Dam\DamRepresenter;
-use FishingAndPlaces\UI\Bundle\MainBundle\Form\DamType;
+use FishAndPlaces\Application\Dam\DamCommand;
+use FishAndPlaces\UI\Bundle\MainBundle\Form\DamType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,11 +15,16 @@ class PlacesController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $dam = new DamRepresenter($dam);
-        $form = $this->createForm(DamType::class, );
+        $damService = $this->get('fish_and_places.dam_service');
 
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ]);
+        $damImagesService = $this->get('fish_and_places.dam_image_service');
+
+        $dam = $this->get('fish_and_places.dam_representer');
+
+        $form = $this->createForm(DamType::class);
+
+        return $this->render('@Main/dam/add_dam.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 }

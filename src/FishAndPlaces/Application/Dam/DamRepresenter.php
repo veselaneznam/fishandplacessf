@@ -1,11 +1,11 @@
 <?php
 
-namespace FishingAndPlaces\Dam\Applicaiton\Dam;
+namespace FishAndPlaces\Application\Dam;
 
-use FishingAndPlaces\Dam\Domain\Model\Value\Location;
-use FishingAndPlaces\Dam\Domain\Model\Value\Rating;
-use FishingAndPlaces\Domain\Dam\Model\Dam;
-use FishingAndPlaces\Domain\Fish\Model\Fish;
+use FishAndPlaces\Domain\Dam\Value\Location;
+use FishAndPlaces\Domain\Dam\Value\Rating;
+use FishAndPlaces\Domain\Dam\Model\Dam;
+use FishAndPlaces\Domain\Fish\Model\Fish;
 
 class DamRepresenter
 {
@@ -62,7 +62,7 @@ class DamRepresenter
         $this->id = $dam->getId();
         $this->name = $dam->getName();
         $this->location = $dam->getLocation();
-        $this->isActive = $dam->isIsActive();
+        $this->isActive = $dam->isActive();
         $this->priceProPerson = $dam->getPriceProPerson();
         $this->fishCollection = $dam->getFishCollection();
         $this->rating = $dam->getRating();
@@ -140,5 +140,20 @@ class DamRepresenter
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return Dam
+     */
+    public function revertToModel()
+    {
+        return new Dam(
+            $this->name,
+            $this->location,
+            $this->priceProPerson,
+            $this->fishCollection,
+            $this->rating,
+            $this->isActive
+        );
     }
 }

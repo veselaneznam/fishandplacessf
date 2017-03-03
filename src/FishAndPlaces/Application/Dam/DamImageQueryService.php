@@ -7,11 +7,11 @@
  * Time: 7:58 PM
  */
 
-namespace FishingAndPlaces\Dam\Applicaiton\Dam;
+namespace FishAndPlaces\Dam\Applicaiton\Dam;
 
-use FishingAndPlaces\Dam\Domain\Repository\DamImageRepository;
-use FishingAndPlaces\Domain\Dam\Model\Dam;
-use FishingAndPlaces\Domain\Dam\Model\DamImage;
+use FishAndPlaces\Dam\Domain\Repository\DamImageRepository;
+use FishAndPlaces\Domain\Dam\Model\Dam;
+use FishAndPlaces\Domain\Dam\Model\DamImage;
 
 class DamImageQueryService
 {

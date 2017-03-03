@@ -1,0 +1,4 @@
+services:
+
+    fish_and_places.fish_factory:
+        class: FishAndPlaces\Application\Factory\FishStaticFactory

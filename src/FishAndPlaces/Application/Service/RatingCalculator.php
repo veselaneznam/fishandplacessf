@@ -1,6 +1,6 @@
 <?php
 
-namespace FishingAndPlaces\Applicaiton\Service;
+namespace FishAndPlaces\Applicaiton\Service;
 
 interface RatingCalculator
 {

@@ -7,13 +7,12 @@
  * Time: 8:21 PM
  */
 
-namespace FishingAndPlaces\Dam\Applicaiton\Dam;
+namespace FishAndPlaces\Application\Dam;
 
-use FishingAndPlaces\Dam\Application\CommonCommand;
-use FishingAndPlaces\Dam\Domain\Model\Value\Location;
-use FishingAndPlaces\Dam\Domain\Model\Value\Price;
-use FishingAndPlaces\Dam\Domain\Model\Value\Rating;
-use FishingAndPlaces\Domain\Fish\Model\Fish;
+use FishAndPlaces\Domain\Dam\Model\Dam;
+use FishAndPlaces\Domain\Dam\Value\Location;
+use FishAndPlaces\Domain\Dam\Value\Rating;
+use FishAndPlaces\Application\CommonCommand;
 
 class DamCommand implements CommonCommand
 {
@@ -26,9 +25,9 @@ class DamCommand implements CommonCommand
      */
     private $location;
     /**
-     * @var Price
+     * @var float
      */
-    private $price;
+    private $priceProPerson;
     /**
      * @var array
      */
@@ -39,22 +38,20 @@ class DamCommand implements CommonCommand
      */
     private $rating;
 
+    /** @var bool*/
+    private $isActive;
+
     /**
-     * CreateDamCommand constructor.
-     *
-     * @param string   $name
-     * @param Location $location
-     * @param Price    $price
-     * @param Fish[]   $fishCollection
-     * @param Rating   $rating
+     * @param Dam $dam
      */
-    public function __construct( $name, Location $location, Price $price, array $fishCollection, Rating $rating)
+    public function __construct(Dam $dam)
     {
-        $this->name = $name;
-        $this->location = $location;
-        $this->price = $price;
-        $this->fishCollection = $fishCollection;
-        $this->rating = $rating;
+        $this->name = $dam->getName();
+        $this->location = $dam->getLocation();
+        $this->priceProPerson = $dam->getPriceProPerson();
+        $this->fishCollection = $dam->getFishCollection();
+        $this->rating = $dam->getRating();
+        $this->isActive = $dam->isActive();
     }
 
     /**
@@ -74,11 +71,11 @@ class DamCommand implements CommonCommand
     }
 
     /**
-     * @return Price
+     * @return float
      */
-    public function getPrice()
+    public function getPriceProPerson()
     {
-        return $this->price;
+        return $this->priceProPerson;
     }
 
     /**
@@ -95,5 +92,13 @@ class DamCommand implements CommonCommand
     public function getRating()
     {
         return $this->rating;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive()
+    {
+        return $this->isActive();
     }
 }

@@ -8,7 +8,7 @@
  * Time: 1:44 PM
  */
 
-namespace FishingAndPlaces\Dam\Domain\Service;
+namespace FishAndPlaces\Dam\Domain\Service;
 
 class RatingCalculator implements RatingCalculatorInterface
 {

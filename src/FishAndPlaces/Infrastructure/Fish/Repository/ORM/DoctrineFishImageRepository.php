@@ -3,8 +3,8 @@
 namespace FishAndPlaces\Infrastructure\Fish\Repository\Doctrine\ORM;
 
 use FishAndPlaces\Infrastructure\Core\Repository\Doctrine\ORM\DoctrineRepository;
-use FishingAndPlaces\Domain\Fish\Model\FishImage;
-use FishingAndPlaces\Domain\Fish\Repository\FishImageRepository;
+use FishAndPlaces\Domain\Fish\Model\FishImage;
+use FishAndPlaces\Domain\Fish\Repository\FishImageRepository;
 
 class DoctrineFishImageRepository extends DoctrineRepository implements FishImageRepository
 {

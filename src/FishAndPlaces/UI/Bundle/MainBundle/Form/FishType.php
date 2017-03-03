@@ -1,8 +1,8 @@
 <?php
 
-namespace FishingAndPlaces\UI\Bundle\MainBundle\Form;
+namespace FishAndPlaces\UI\Bundle\MainBundle\Form;
 
-use FishingAndPlaces\Domain\Fish\Model\Fish;
+use FishAndPlaces\Domain\Fish\Model\Fish;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 

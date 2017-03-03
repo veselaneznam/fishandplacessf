@@ -1,6 +1,6 @@
 <?php
 
-namespace FishingAndPlaces\Domain\Fish\Model;
+namespace FishAndPlaces\Domain\Fish\Model;
 
 class FishImage
 {

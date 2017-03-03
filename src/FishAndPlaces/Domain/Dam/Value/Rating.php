@@ -1,6 +1,6 @@
 <?php
 
-namespace FishingAndPlaces\Dam\Domain\Model\Value;
+namespace FishAndPlaces\Domain\Dam\Value;
 
 use Doctrine\Common\Proxy\Exception\InvalidArgumentException;
 

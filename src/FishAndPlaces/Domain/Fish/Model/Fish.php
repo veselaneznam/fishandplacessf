@@ -8,13 +8,14 @@
  * Time: 1:14 PM
  */
 
-namespace FishingAndPlaces\Domain\Fish\Model;
+namespace FishAndPlaces\Domain\Fish\Model;
 
-use FishingAndPlaces\Dam\Domain\Model\Value\Location;
-use FishingAndPlaces\Domain\Dam\Model\Dam;
+use FishAndPlaces\Domain\Dam\Value\Location;
+use FishAndPlaces\Domain\Dam\Model\Dam;
 
 class Fish
 {
+    private $id;
     /**
      * @var string
      */

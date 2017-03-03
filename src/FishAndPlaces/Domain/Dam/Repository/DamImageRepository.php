@@ -7,9 +7,9 @@
  * Time: 7:49 PM
  */
 
-namespace FishingAndPlaces\Dam\Domain\Repository;
+namespace FishAndPlaces\Domain\Dam\Repository;
 
-use FishingAndPlaces\Domain\Dam\Model\DamImage;
+use FishAndPlaces\Domain\Dam\Model\DamImage;
 
 interface DamImageRepository
 {

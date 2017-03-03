@@ -7,19 +7,15 @@
  * Time: 8:21 PM
  */
 
-namespace FishingAndPlaces\Dam\Applicaiton\Dam;
+namespace FishAndPlaces\Application\Dam;
 
-use FishingAndPlaces\Dam\Application\CommonCommand;
-use FishingAndPlaces\Dam\Domain\Model\Value\Location;
-use FishingAndPlaces\Dam\Domain\Model\Value\Price;
-use FishingAndPlaces\Dam\Domain\Model\Value\Rating;
-use FishingAndPlaces\Domain\Dam\Model\Dam;
-use FishingAndPlaces\Domain\Fish\Model\Fish;
+use FishAndPlaces\Application\CommonCommand;
+use FishAndPlaces\Domain\Dam\Model\DamImage;
 
 class DamImageCommand implements CommonCommand
 {
     /**
-     * @var Dam
+     * @var DamRepresenter
      */
     private $dam;
 
@@ -29,14 +25,13 @@ class DamImageCommand implements CommonCommand
     private $imageSrc;
 
     /**
-     * @param Dam $dam
-     * @param string $imageSrc
+     * @param DamImageRepresenter $damImageRepresenter
      */
-    public function __construct(Dam $dam, $imageSrc)
+    public function __construct(DamImage $damImageRepresenter)
     {
-        $this->dam = $dam;
+        $this->dam = $damImageRepresenter->getDam();
 
-        $this->imageSrc = $imageSrc;
+        $this->imageSrc = $damImageRepresenter->getImageSrc();
     }
 
     /**

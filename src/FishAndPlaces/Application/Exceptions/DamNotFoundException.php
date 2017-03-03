@@ -7,7 +7,7 @@
  * Time: 7:59 PM
  */
 
-namespace FishingAndPlaces\Dam\Applicaiton\Exceptions;
+namespace FishAndPlaces\Dam\Applicaiton\Exceptions;
 
 class DamNotFoundException extends \Exception
 {

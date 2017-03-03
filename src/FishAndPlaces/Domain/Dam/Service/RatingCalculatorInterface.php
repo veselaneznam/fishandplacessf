@@ -1,8 +1,8 @@
 <?php
 
-namespace FishingAndPlaces\Dam\Domain\Service;
+namespace FishAndPlaces\Dam\Domain\Service;
 
-use FishingAndPlaces\Applicaiton\Service\RatingCalculator as CoreRatingCalculator;
+use FishAndPlaces\Applicaiton\Service\RatingCalculator as CoreRatingCalculator;
 
 interface RatingCalculatorInterface extends CoreRatingCalculator
 {

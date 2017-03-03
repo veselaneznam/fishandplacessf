@@ -7,11 +7,11 @@
  * Time: 7:58 PM
  */
 
-namespace FishingAndPlaces\Dam\Applicaiton\Dam;
+namespace FishAndPlaces\Application\Dam;
 
-use FishingAndPlaces\Dam\Applicaiton\CommonService;
-use FishingAndPlaces\Dam\Domain\Repository\DamImageRepository;
-use FishingAndPlaces\Domain\Dam\Model\Dam;
+use FishAndPlaces\Application\CommonCommand;
+use FishAndPlaces\Domain\Dam\Repository\DamImageRepository;
+use FishAndPlaces\Domain\Dam\Model\DamImage;
 
 class DamImageService implements CommonService
 {
@@ -19,6 +19,9 @@ class DamImageService implements CommonService
      * @var DamImageRepository
      */
     private $damImageRepository;
+
+    /** @var DamImageCommand */
+    private $command;
 
     /**
      * @param DamImageRepository $damImageRepository
@@ -29,49 +32,52 @@ class DamImageService implements CommonService
     }
 
     /**
-     * @param DamImageCommand $damImageCommand
+     * @param CommonCommand $command
      */
-    public function create(DamImageCommand $damImageCommand)
+    public function create(CommonCommand $command)
     {
-        $dam = $this->initDamImage($damImageCommand);
+        $dam = $this->initDamImage($command);
         $this->damImageRepository->add($dam);
     }
 
     /**
-     * @param DamCommand $command
+     * @param CommonCommand $command
+     *
      * @return void
      */
-    public function delete(DamImageCommand $command)
+    public function delete(CommonCommand $command)
     {
         $dam = $this->initDamImage($command);
         $this->damImageRepository->remove($dam);
     }
 
     /**
-     * @param DamCommand $command
+     * @param CommonCommand $command
      *
      * @return void
      */
-    public function update(DamImageCommand $command)
+    public function update(CommonCommand $command)
     {
-        $dam = $this->initDamImage($command);
-        $this->damImageRepository->update($dam);
+        $damImage = $this->initDamImage($command);
+        $this->damImageRepository->update($damImage);
     }
 
     /**
-     * @param DamImageCommand $command
+     * @param CommonCommand|DamImageCommand $command
+     *
      * @return DamImage
+     * @throws \Exception
      */
-    public function initDamImage(DamImageCommand $command)
+    public function initDamImage(CommonCommand $command)
     {
-        $dam = new Dam(
-            $command->getName(),
-            $command->getLocation(),
-            $command->getPrice(),
-            $command->getFishCollection(),
-            $command->getRating()
+        if(!$command instanceof DamImageCommand) {
+            throw new \Exception(sprintf('Wrong command type, should be %s', DamImageCommand::class));
+        }
+        $damImage = new DamImage(
+            $this->command->getDam(),
+            $this->command->getImageSrc()
         );
 
-        return $dam;
+        return $damImage;
     }
 }

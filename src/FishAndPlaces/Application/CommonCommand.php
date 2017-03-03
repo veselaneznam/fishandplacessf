@@ -7,7 +7,7 @@
  * Time: 8:16 PM
  */
 
-namespace FishingAndPlaces\Dam\Application;
+namespace FishAndPlaces\Application;
 
 interface CommonCommand
 {
