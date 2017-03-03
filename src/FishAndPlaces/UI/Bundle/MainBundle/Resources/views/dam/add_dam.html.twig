@@ -1,4 +1,8 @@
 {% extends '@Main/base.html.twig' %}
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
+{% block title %}My cool blog posts {% endblock %}
+{% block body %}
+    {% use "bootstrap_3_layout.html.twig" %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+ {% endblock %}
