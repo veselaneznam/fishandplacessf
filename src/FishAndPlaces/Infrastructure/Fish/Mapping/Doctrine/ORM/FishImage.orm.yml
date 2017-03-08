@@ -10,7 +10,7 @@ FishAndPlaces\Domain\Fish\Model\FishImage:
     fields:
         createdAt:
             type: datetime
-        updateAt:
+        updatedAt:
             type: datetime
             nullable: true
         imageSrc:

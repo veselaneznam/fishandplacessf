@@ -31,7 +31,9 @@
         "twitter/bootstrap": "3.*",
         "components/jquery": "1.11.1",
         "symfony/assetic-bundle": "^2.8",
-        "sonata-project/doctrine-phpcr-admin-bundle": "^1.2"
+        "cderue/googlemaps": "dev-master",
+        "artscorestudio/datagrid-bundle": "^3.0",
+        "fsi/datagrid-bundle": "^1.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

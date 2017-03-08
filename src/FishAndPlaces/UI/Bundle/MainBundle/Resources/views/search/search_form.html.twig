@@ -1,0 +1,15 @@
+{% extends '@Main/base.html.twig' %}
+{% block body %}
+    {{ parent() }}
+    {% if helptext is defined %}
+        <p>{{ helptext }}</p>
+    {% endif %}
+<div class="col-md-10">
+    <div class="form-group">
+        <div class="icon-addon addon-lg">
+            <input type="text" name="search_box" placeholder="Search places by name, location or fish" class="form-control" id="search_box">
+            <label for="search_box" class="glyphicon glyphicon-search" rel="tooltip" title="search_box"></label>
+        </div>
+    </div>
+</div>
+{% endblock %}

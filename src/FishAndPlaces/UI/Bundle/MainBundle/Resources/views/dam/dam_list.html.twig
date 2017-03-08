@@ -1,3 +1,8 @@
 {% extends '@Main/base.html.twig' %}
-{% block %}
+{% block content %}
+    <div class="table-border">
+        <form action="{{ path('@add_dam') }}" method="post">
+            {{ datagrid_widget(datagrid) }}
+        </form>
+    </div>
 {% endblock %}

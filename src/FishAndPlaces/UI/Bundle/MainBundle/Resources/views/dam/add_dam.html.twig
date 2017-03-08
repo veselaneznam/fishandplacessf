@@ -1,8 +1,17 @@
 {% extends '@Main/base.html.twig' %}
-{% block title %}My cool blog posts {% endblock %}
 {% block body %}
-    {% use "bootstrap_3_layout.html.twig" %}
+    {{ parent() }}
+    {% if helptext is defined %}
+        <p>{{ helptext }}</p>
+    {% endif %}
     {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+    <div class="form-group">
+        {{ form_label(form.name, 'Dam', {'label_attr': {'class': 'control-label col-xs-2'}}) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="reset" class="btn btn-default back_hotel">Back</button>
+
     {{ form_end(form) }}
- {% endblock %}
+{% endblock %}

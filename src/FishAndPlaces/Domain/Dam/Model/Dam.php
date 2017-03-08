@@ -10,6 +10,7 @@
 
 namespace FishAndPlaces\Domain\Dam\Model;
 
+use FishAndPlaces\Domain\Dam\Value\Contact;
 use FishAndPlaces\Domain\Dam\Value\Location;
 use FishAndPlaces\Domain\Dam\Value\Rating;
 use FishAndPlaces\Domain\Fish\Model\Fish;
@@ -61,6 +62,9 @@ class Dam
      */
     private $isActive;
 
+    /** @var Contact */
+    private $contact;
+
     /**
      * Dam constructor.
      *
@@ -68,11 +72,19 @@ class Dam
      * @param Location $location
      * @param float    $price
      * @param Fish[]   $fishCollection
-     * @param Rating      $rating
+     * @param Rating   $rating
      * @param bool     $isActive
+     * @param Contact  $contact
      */
-    public function __construct($name, Location $location, $price, array $fishCollection, Rating $rating, $isActive)
-    {
+    public function __construct(
+        $name,
+        Location $location,
+        $price,
+        array $fishCollection,
+        Rating $rating,
+        $isActive,
+        Contact $contact
+    ) {
         $this->name = $name;
         $this->location = $location;
         $this->priceProPerson = $price;
@@ -81,6 +93,7 @@ class Dam
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
         $this->isActive = $isActive;
+        $this->contact = $contact;
     }
 
     /**

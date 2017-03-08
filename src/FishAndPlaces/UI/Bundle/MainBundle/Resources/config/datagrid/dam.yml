@@ -1,0 +1,9 @@
+columns:
+  id:
+    type: number
+    options:
+      label: Identity
+  name:
+    type: text
+    options:
+       editable: true

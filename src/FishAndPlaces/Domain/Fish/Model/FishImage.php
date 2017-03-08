@@ -5,6 +5,11 @@ namespace FishAndPlaces\Domain\Fish\Model;
 class FishImage
 {
     /**
+     * @var int
+     */
+    private $id;
+
+    /**
      * @var Fish
      */
     private $fish;
@@ -38,6 +43,31 @@ class FishImage
 
         $this->updatedAt = new \DateTime();
     }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
 
     /**
      * @return Fish
